@@ -5,8 +5,12 @@ const api = {
 
 function App() {
   return (
-    <div className="App">
-      hello
+    <div className="app">
+      <main>
+        <div className="search-box">
+          <input type="text" className="search-bar" placeholder="Enter a city..."/>
+        </div>
+      </main>
     </div>
   );
 }
