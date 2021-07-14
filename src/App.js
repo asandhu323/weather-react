@@ -18,6 +18,7 @@ function App() {
         .then(result => {
           setWeather(result);
           setQuery('');
+          console.log(result);
         });
     }
   }
@@ -35,7 +36,7 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app hot' : 'app') : 'appl'}>
       <main>
         <div className="search-box">
           <input type="text" className="search-bar" placeholder="Enter a city..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={search} />
@@ -48,6 +49,7 @@ function App() {
             </div>
             <div className="weather-box">
               <div className="temp">{Math.round(weather.main.temp)}°C</div>
+              <div className="weather">{weather.weather[0].main}</div>
             </div>
           </div>) : ('')}
       </main>
